@@ -27,14 +27,15 @@
       $( "button" ).click(function() {
         $.ajax({
               dataType: 'json',
-              url: "http://127.0.0.1:5984/demo001/_design/primero/_view/vista001?include_docs=true"
+              url: "http://127.0.0.1:5984/salab/_design/segundo/_view/vista002?include_docs=true"
               }).then(function(data) {
                 console.log(data);
                 for(var i=0; i<data.rows.length; i++){
                   var nombre = data.rows[i].doc.nombre;
+                  var lenguaje = data.rows[i].doc.lenguaje;
                   var apellido = data.rows[i].doc.apellido;
                   $('#mensajeFinal').append("<p> <b>Nombre:</b> "+ nombre + " <b>Apellido:</b> " +
-                    apellido + "</p>");
+                    apellido + "<b> Lenguaje:</b> " + lenguaje +  "</p>");
                 }
               });
       });
